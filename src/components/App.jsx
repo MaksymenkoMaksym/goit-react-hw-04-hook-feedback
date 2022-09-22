@@ -56,10 +56,11 @@ export class App extends Component {
 }
 
 export const App1 = () => {
-  const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
+  let [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
   const [isClicked, setIsClicked] = useState(false);
 
   const onLeaveFeedback = type => {
+    // setFeedback( (prevState)=>({ ...prevState, [type]: feedback[type] + 1 })); // довжий запис теж саме
     setFeedback({ ...feedback, [type]: feedback[type] + 1 });
     setIsClicked(true);
   };
